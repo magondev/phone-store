@@ -1,6 +1,29 @@
 <app-hero></app-hero>
 
 <div class="container">
-  <h2>Unsere iPhone-Modelle</h2>
+  <h2>Unsere neuesten iPhone-Modelle</h2>
+  <ng-container *ngIf="appleDevices.length > 0; else noDevices">
+    <ul>
+      <li *ngFor="let device of appleDevices">{{ device.model }}</li>
+    </ul>
+  </ng-container>
 
+
+  <h2>Unsere neuesten Samsung-Modelle</h2>
+  <ng-container *ngIf="samsungDevices.length > 0; else noDevices">
+    <ul>
+      <li *ngFor="let device of samsungDevices">{{ device.model }}</li>
+    </ul>
+  </ng-container>
+
+  <h2>Unsere neuesten Huawei-Modelle</h2>
+  <ng-container *ngIf="huaweiDevices.length > 0; else noDevices">
+    <ul>
+      <li *ngFor="let device of huaweiDevices">{{ device.model }}</li>
+    </ul>
+  </ng-container>
+  
+  <ng-template #noDevices>
+    <p>Fehler beim Laden aufgetreten. Bitte versuchen Sie es später erneut.</p>
+  </ng-template>
 </div>
